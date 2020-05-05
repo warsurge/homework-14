@@ -34,8 +34,19 @@ exercises: [{
         type: Number
     }
 }]
+},
+{
+    toJSON: {
+        virtuals: true
+    }
+});
+
+workout.virtual("totalDuration").get(function() {
+    return this.exercises.reduce((total, excercise) => {
+        return total + excercise.duration;
+    }, 0);
 });
 
 const Workout = mongoose.model("Workout", workout);
 
-module.exports = Workout;
+module.exports = Workout
