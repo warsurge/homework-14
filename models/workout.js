@@ -37,6 +37,7 @@ exercises: [{
 });
 
 
+
 const Workout = mongoose.model("Workout", workout);
 
 module.exports = Workout
