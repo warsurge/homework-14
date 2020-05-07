@@ -1,4 +1,5 @@
 const Workout = require("../models/workout.js")
+var path = require("path");
 
 module.exports = function (app){
     app.get("/api/workouts", function (req,res){
@@ -7,8 +8,8 @@ module.exports = function (app){
         }).catch(err => {
             res.json(err)
         })
-    })
-};
+    });
+
 
 app.post("/api/workouts", function (req,res) {
     Workout.create({}).then(data =>
@@ -28,4 +29,6 @@ app.put("/api/workouts/:id", ({body, params}, res) => {
         console.log(err)
         res.json(err)
     })
-})
+});
+
+}
